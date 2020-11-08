@@ -2,14 +2,15 @@ package homeworks.hw421;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("1. Добавить задачу\n" +
-                           "2. Вывести список задач\n" +
-                           "3. Удалить задачу\n" +
-                           "0. Выход");
 
+        House25 house = new House25();
 
-        TaskKeeper taskKeeper = new TaskKeeper();
-        taskKeeper.run();
+        System.out.println("Введите номер этажа в диапазоне " +
+                           "от " + house.getMinFloor() + " до " + house.getMaxFloor() + "\n" +
+                           "0 - посмотреть результат и выход");
+
+        Elevator elevator = new Elevator(house);
+        elevator.run();
         System.out.println("Выход");
     }
 
