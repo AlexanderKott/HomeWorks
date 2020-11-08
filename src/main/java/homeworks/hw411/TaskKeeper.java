@@ -1,14 +1,10 @@
 package homeworks.hw411;
 
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.*;
 
 public class TaskKeeper {
-    private ArrayList<Task> tasks = new ArrayList<>(100);
+    private List<Task> tasks = new ArrayList<>(100);
 
     private static int parse(int input) {
         if ((input > 0) && (input < 4))
@@ -48,7 +44,7 @@ public class TaskKeeper {
                 addNewTask(in);
                 break;
             case 2:
-                listAllTasks();
+                displayAllTasks();
                 break;
             case 3:
                 removeTask(in);
@@ -56,11 +52,11 @@ public class TaskKeeper {
         }
     }
 
-    private void listAllTasks() {
+    private void displayAllTasks() {
         System.out.println("Вывод:");
-        AtomicInteger runCount = new AtomicInteger(0);
-        tasks.forEach(x ->
-                System.out.println(" #" + runCount.getAndIncrement() + "  " + x));
+        for (int i = 0; i < tasks.size(); i++) {
+            System.out.println(tasks.get(i));
+        }
     }
 
     private void removeTask(Scanner in) {
